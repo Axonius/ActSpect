@@ -1,0 +1,41 @@
+ActChain - Third-Party Software Notices and Information
+
+This software incorporates or depends upon the following third-party software:
+
+1. Zizmor
+   License: MIT License
+   Copyright: Copyright (c) 2024 Trail of Bits
+   Source: https://github.com/woodruffw/zizmor
+
+2. OpenGrep/Semgrep
+   License: LGPL-2.1 License
+   Copyright: Copyright (c) 2024 Semgrep, Inc.
+   Source: https://github.com/opengrep/opengrep
+   Note: Used as external command-line tool (no linking)
+
+3. PyGithub
+   License: LGPL-3.0 License
+   Copyright: Copyright 2012 Vincent Jacques
+   Source: https://github.com/PyGithub/PyGithub
+   This project uses PyGithub (LGPL v3). 
+   You may replace it with another compatible library (e.g., GitPython)
+   by updating requirements.txt (or running pip uninstall PyGithub followed
+   by pip install GitPython) and adjusting the code in actchain/core/github_client.py accordingly.
+
+4. Rich
+   License: MIT License
+   Copyright: Copyright (c) 2020 Will McGugan
+   Source: https://github.com/Textualize/rich
+
+5. Click
+   License: BSD-3-Clause License
+   Copyright: Copyright 2014 Pallets
+   Source: https://github.com/pallets/click
+
+6. PyYAML
+   License: MIT License
+   Copyright: Copyright (c) 2017-2021 Ingy döt Net
+   Source: https://github.com/yaml/pyyaml
+
+The full license texts for these dependencies can be found in their respective
+source repositories or installed packages.
