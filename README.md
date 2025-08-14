@@ -1,3 +1,8 @@
+<p align="center">
+  <img width="584" height="185" alt="image" src="https://github.com/user-attachments/assets/201624b5-d6a8-4386-829a-0818dfc7d088" />
+</p>
+
+
 # ActChain - GitHub Actions Security Scanner
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
@@ -342,9 +347,9 @@ GitHub Actions is a trademark of GitHub, Inc.
 
 ## 🆘 Support
 
-- **Documentation**: [Full documentation](https://actchain.readthedocs.io/)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/actchain/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/actchain/discussions)
+- **Documentation**: [Full documentation](https://github.com/Axonius/ActChain/blob/main/Documentation.md)
+- **Issues**: [GitHub Issues](https://github.com/Axonius/ActChain/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Axonius/ActChain/discussions)
 - **Security**: Report security vulnerabilities privately via email
 - **Community**: Join our community discussions for help and feedback
 
