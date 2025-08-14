@@ -381,6 +381,27 @@ ActChain is designed for efficiency:
 - **Rate Limiting**: Respects GitHub API limits automatically
 - **Incremental Updates**: Smart detection of changes
 
+
+## Contributors
+
+This project is made possible by the amazing people who have shaped it through their code, ideas, and guidance.  
+
+- **[Igor Stepansky](https://github.com/iggypopi)** — *Lead & Primary Contributor*  
+  Created the initial project setup, wrote all core features, and authored documentation.
+
+- **[Avri Schneider](https://github.com/avri-schneider)**  
+  Provided initial project code review, quality assurance, and deployment.
+
+- **[Tomer Mekler](https://github.com/Ax-TomerMek)**  
+  Advised on project direction, design, and planning.
+
+- **[Sharon Ohayon](https://github.com/sharonOhayon)**  
+  Project management and team leadership.
+
+- **[Michael Goberman](https://github.com/micgob)**  
+  Project management and team leadership.
+
+
 ---
 
 **Made with ❤️ for the DevSecOps community**
