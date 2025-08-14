@@ -1,0 +1,9 @@
+# requirements.in
+# Primary dependencies - let pip-compile find the latest compatible versions
+
+PyGithub
+pyyaml
+click
+rich
+requests
+zizmor
