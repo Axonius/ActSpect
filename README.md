@@ -386,11 +386,14 @@ ActChain is designed for efficiency:
 
 This project is made possible by the amazing people who have shaped it through their code, ideas, and guidance.  
 
-- **[Igor Stepansky](https://github.com/iggypopi)** — *Lead & Primary Contributor*  
+- **[Igor Stepansky](https://github.com/iggypopi)** - *Lead & Primary Contributor*  
   Created the initial project setup, wrote all core features, and authored documentation.
 
 - **[Avri Schneider](https://github.com/avri-schneider)**  
   Provided initial project code review, quality assurance, and deployment.
+
+- **[Nissan Itzhakov](https://github.com/nissanitz)**  
+  Deploying and maintenance of the project.
 
 - **[Tomer Mekler](https://github.com/Ax-TomerMek)**  
   Advised on project direction, design, and planning.
