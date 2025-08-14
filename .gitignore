@@ -1,0 +1,167 @@
+# ActChain Project .gitignore
+
+# ActChain-specific files
+actchain_reports/
+*.actchain
+scan_*/
+actchain_debug.log
+dependency_graph.*
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.python-version
+
+# IDEs and Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Jupyter Notebooks
+.ipynb_checkpoints
+
+# Logs and Databases
+*.log
+*.sqlite3
+*.db
+
+# Security and Secrets
+.env.local
+.env.*.local
+*.pem
+*.key
+*.crt
+.secrets/
+secrets.*
+config.ini
+config.yaml
+config.yml
+.actchain_config
+
+# Documentation
+docs/_build/
+docs/build/
+site/
+.mkdocs.yml.backup
+
+# Temporary files
+*.tmp
+*.temp
+.tmp/
+.temp/
+*.bak
+*.backup
+
+# Package managers
+.pip-cache/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Profiling data
+.prof
+
+# GitHub token files (extra safety)
+github_token*
+.github_token
+token.txt
+*.token
+
+# Report archives
+reports.zip
+reports.tar.gz
+*.report
+
+# Node.js (if any JS tooling is added)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local development
+.local/
+local_*
+test_*
+debug_*
+
+# Backup files
+*~
+*.orig
+*.rej
+
+# Compiled translations
+*.mo
+*.pot
+
+# Sphinx documentation
+docs/_build/
+
+# Rope project settings
+.ropeproject
