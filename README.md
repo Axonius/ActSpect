@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="584" height="185" alt="image" src="https://github.com/user-attachments/assets/201624b5-d6a8-4386-829a-0818dfc7d088" />
+  <img width="584" height="185" alt="ActChain GitHub Actions Security Scanner logo" src="https://github.com/user-attachments/assets/201624b5-d6a8-4386-829a-0818dfc7d088" />
 </p>
 
 
