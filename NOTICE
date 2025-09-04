@@ -1,4 +1,4 @@
-ActChain - Third-Party Software Notices and Information
+ActSpect - Third-Party Software Notices and Information
 
 This software incorporates or depends upon the following third-party software:
 
@@ -20,7 +20,7 @@ This software incorporates or depends upon the following third-party software:
    This project uses PyGithub (LGPL v3). 
    You may replace it with another compatible library (e.g., GitPython)
    by updating requirements.txt (or running pip uninstall PyGithub followed
-   by pip install GitPython) and adjusting the code in actchain/core/github_client.py accordingly.
+   by pip install GitPython) and adjusting the code in actspect/core/github_client.py accordingly.
 
 4. Rich
    License: MIT License

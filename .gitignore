@@ -1,10 +1,10 @@
-# ActChain Project .gitignore
+# ActSpect Project .gitignore
 
-# ActChain-specific files
-actchain_reports/
-*.actchain
+# ActSpect-specific files
+actspect_reports/
+*.actspect
 scan_*/
-actchain_debug.log
+actspect_debug.log
 dependency_graph.*
 
 # Python
@@ -93,7 +93,7 @@ secrets.*
 config.ini
 config.yaml
 config.yml
-.actchain_config
+.actspect_config
 
 # Documentation
 docs/_build/

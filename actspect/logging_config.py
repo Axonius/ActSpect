@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 """
-Logging configuration for ActChain.
+Logging configuration for ActSpect.
 """
 
 import logging
@@ -31,8 +31,8 @@ from typing import Optional
 from .constants import MAX_LOG_SIZE
 
 
-class ActChainFilter(logging.Filter):
-    """Custom filter for ActChain logging."""
+class ActSpectFilter(logging.Filter):
+    """Custom filter for ActSpect logging."""
 
     def __init__(self, verbose: bool = False):
         """
@@ -58,8 +58,8 @@ class ActChainFilter(logging.Filter):
         if self.verbose:
             return True
 
-        # Filter out debug logs from ActChain modules unless verbose
-        if record.name.startswith('actchain.') and record.levelno < logging.INFO:
+        # Filter out debug logs from ActSpect modules unless verbose
+        if record.name.startswith('actspect.') and record.levelno < logging.INFO:
             return False
 
         # Show all other logs
@@ -76,7 +76,7 @@ class LoggingConfig:
             log_level: Optional[str] = None
     ) -> logging.Logger:
         """
-        Configure logging for ActChain.
+        Configure logging for ActSpect.
 
         Args:
             verbose: Whether to enable verbose logging
@@ -152,7 +152,7 @@ class LoggingConfig:
         handler.setLevel(level)
 
         # Add custom filter
-        handler.addFilter(ActChainFilter(verbose=verbose))
+        handler.addFilter(ActSpectFilter(verbose=verbose))
 
         return handler
 

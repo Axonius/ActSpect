@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@ if TYPE_CHECKING:
     from .github_client import GitHubClient
     from .workflow_parser import WorkflowParser
 
-logger = logging.getLogger('actchain.core.action_resolver')
+logger = logging.getLogger('actspect.core.action_resolver')
 
 
 class ActionResolver:

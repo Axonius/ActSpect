@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 """
-System utilities for ActChain.
+System utilities for ActSpect.
 """
 
 import os
@@ -29,7 +29,7 @@ import platform
 import logging
 from typing import Dict, Any, Optional
 
-logger = logging.getLogger('actchain.utils.system')
+logger = logging.getLogger('actspect.utils.system')
 
 
 class SystemUtils:
@@ -111,6 +111,6 @@ class SystemUtils:
             },
             "environment_variables": {
                 "GITHUB_TOKEN": bool(SystemUtils.get_env_var("GITHUB_TOKEN")),
-                "ACTCHAIN_LOG_LEVEL": SystemUtils.get_env_var("ACTCHAIN_LOG_LEVEL", "INFO"),
+                "ACTSPECT_LOG_LEVEL": SystemUtils.get_env_var("ACTSPECT_LOG_LEVEL", "INFO"),
             }
         }

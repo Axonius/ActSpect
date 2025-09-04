@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 """
-Security utilities for ActChain.
+Security utilities for ActSpect.
 """
 
 import os
@@ -28,7 +28,7 @@ import contextlib
 import logging
 import re
 
-logger = logging.getLogger('actchain.utils.security')
+logger = logging.getLogger('actspect.utils.security')
 
 
 class SecurityUtils:
@@ -36,7 +36,7 @@ class SecurityUtils:
 
     @staticmethod
     @contextlib.contextmanager
-    def secure_temp_file(suffix: str = '', prefix: str = 'actchain_'):
+    def secure_temp_file(suffix: str = '', prefix: str = 'actspect_'):
         """
         Create a secure temporary file with proper cleanup.
 

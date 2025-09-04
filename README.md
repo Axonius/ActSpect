@@ -1,15 +1,15 @@
 <p align="center">
-  <img width="584" height="185" alt="ActChain GitHub Actions Security Scanner logo" src="https://github.com/user-attachments/assets/201624b5-d6a8-4386-829a-0818dfc7d088" />
+  <img width="709" height="174" alt="ActChain GitHub Actions Security Scanner logo" src="https://github.com/user-attachments/assets/1484d3ce-46ad-47dc-adfa-8e4256efd98d" />
 </p>
 
 
-# ActChain - GitHub Actions Security Scanner
+# ActSpect - GitHub Actions Security Scanner
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-ActChain is a comprehensive security analysis tool for GitHub Actions workflows and their dependencies. It provides deep supply chain scanning capabilities to identify security vulnerabilities, misconfigurations, and compliance issues in your CI/CD pipelines.
+ActSpect is a comprehensive security analysis tool for GitHub Actions workflows and their dependencies. It provides deep supply chain scanning capabilities to identify security vulnerabilities, misconfigurations, and compliance issues in your CI/CD pipelines.
 
 ## 🚀 Features
 
@@ -39,18 +39,34 @@ ActChain is a comprehensive security analysis tool for GitHub Actions workflows 
 - Git
 - GitHub personal access token
 
-### Install ActChain
+### Install ActSpect
 ```bash
-pip install actchain
+pip install actspect
 ```
 
 ### Install Optional Dependencies
 For enhanced scanning capabilities:
-```bash
-# For OpenGrep/Semgrep scanning
-pip install "actchain[all]"
 
-# For dependency graph generation
+#### OpenGrep/Semgrep Scanner
+For static analysis scanning, install OpenGrep or Semgrep manually:
+
+**Option 1: Install OpenGrep (recommended)**
+```bash
+# Download the latest release from GitHub
+# Visit: https://github.com/opengrep/opengrep/releases
+# Download the appropriate binary for your platform and add it to your PATH
+```
+
+**Option 2: Install Semgrep and create OpenGrep alias**
+```bash
+pip install semgrep
+# Create an alias so ActSpect can find it as 'opengrep'
+sudo ln -s $(which semgrep) /usr/local/bin/opengrep
+```
+
+#### Dependency Graph Generation
+```bash
+# For dependency graph visualization
 sudo apt-get install graphviz  # Ubuntu/Debian
 brew install graphviz          # macOS
 ```
@@ -64,12 +80,12 @@ export GITHUB_TOKEN="your_github_token_here"
 
 ### 2. Basic workflow scan
 ```bash
-actchain scan --repo owner/repository
+actspect scan --repo owner/repository
 ```
 
 ### 3. Advanced scanning with custom options
 ```bash
-actchain scan \
+actspect scan \
   --repo owner/repository \
   --scanner all \
   --min-severity medium \
@@ -84,14 +100,14 @@ actchain scan \
 
 #### Scan Command
 ```bash
-actchain scan [OPTIONS]
+actspect scan [OPTIONS]
 ```
 
 **Options:**
 - `--repo, -r`: GitHub repository in "owner/repo" format (required)
 - `--token, -t`: GitHub personal access token (or set GITHUB_TOKEN env var)
 - `--workflow-path`: Path to specific workflow file to scan
-- `--output-dir, -o`: Directory to save reports (default: ./actchain_reports)
+- `--output-dir, -o`: Directory to save reports (default: ./actspect_reports)
 - `--max-depth`: Maximum depth for dependency scanning (default: 5)
 - `--scanner`: Scanner to use: zizmor, opengrep, or all (default: all)
 - `--min-severity`: Minimum severity level: critical, high, medium, low (default: low)
@@ -102,19 +118,19 @@ actchain scan [OPTIONS]
 
 #### Info Command
 ```bash
-actchain info
+actspect info
 ```
 Display system information and dependency status.
 
 #### Setup Command
 ```bash
-actchain setup [--install-all]
+actspect setup [--install-all]
 ```
-Set up ActChain and install optional dependencies.
+Set up ActSpect and install optional dependencies.
 
 #### Test Scanner Command
 ```bash
-actchain test-scanner [zizmor|opengrep|all]
+actspect test-scanner [zizmor|semgrep|all]
 ```
 Test if specific scanners are working correctly.
 
@@ -122,12 +138,12 @@ Test if specific scanners are working correctly.
 
 #### Basic Security Scan
 ```bash
-actchain scan --repo myorg/myrepo
+actspect scan --repo myorg/myrepo
 ```
 
 #### Comprehensive Security Audit
 ```bash
-actchain scan \
+actspect scan \
   --repo myorg/myrepo \
   --scanner all \
   --min-severity high \
@@ -138,7 +154,7 @@ actchain scan \
 
 #### Focused Critical Issues Scan
 ```bash
-actchain scan \
+actspect scan \
   --repo myorg/myrepo \
   --min-severity critical \
   --scanner zizmor
@@ -146,7 +162,7 @@ actchain scan \
 
 #### Specific Workflow Analysis
 ```bash
-actchain scan \
+actspect scan \
   --repo myorg/myrepo \
   --workflow-path .github/workflows/ci.yml \
   --max-depth 8
@@ -176,7 +192,7 @@ actchain scan \
 - Specialized GitHub Actions security scanner
 - Built-in rules for common vulnerabilities
 - Fast and accurate analysis
-- Default scanner for ActChain
+- Default scanner for ActSpect
 
 #### OpenGrep/Semgrep Scanner
 - Advanced static analysis capabilities
@@ -210,46 +226,46 @@ Visual representations showing:
 
 ## 🏗️ Project Structure
 
-ActChain follows a modular architecture designed for maintainability and extensibility:
+ActSpect follows a modular architecture designed for maintainability and extensibility:
 
 ```
-actchain/
+ActSpect/
 ├── README.md                    # Project documentation
 ├── LICENSE                      # MIT License
-├── NOTICE                      # Third-party notices
+├── NOTICE                       # Third-party notices
 ├── requirements.txt             # Python dependencies  
-├── setup.py                    # Package setup configuration
-└── actchain/                   # Main package directory
-    ├── __init__.py             # Package initialization
-    ├── constants.py            # Constants and configuration
-    ├── logging_config.py       # Logging configuration
-    ├── cli/                    # Command-line interface
+├── setup.py                     # Package setup configuration
+└── ActSpect/                    # Main package directory
+    ├── __init__.py              # Package initialization
+    ├── constants.py             # Constants and configuration
+    ├── logging_config.py        # Logging configuration
+    ├── cli/                     # Command-line interface
     │   ├── __init__.py
-    │   ├── main.py             # Main CLI entry point
-    │   ├── commands.py         # CLI command definitions
-    │   └── display.py          # Display logic and UI
-    ├── core/                   # Core functionality
+    │   ├── main.py              # Main CLI entry point
+    │   ├── commands.py          # CLI command definitions
+    │   └── display.py           # Display logic and UI
+    ├── core/                    # Core functionality
     │   ├── __init__.py
-    │   ├── github_client.py    # GitHub API client
-    │   ├── workflow_parser.py  # Workflow parsing logic
-    │   └── action_resolver.py  # Action resolution and dependency analysis
-    ├── scanners/               # Security scanners
+    │   ├── github_client.py     # GitHub API client
+    │   ├── workflow_parser.py   # Workflow parsing logic
+    │   └── action_resolver.py   # Action resolution and dependency analysis
+    ├── scanners/                # Security scanners
     │   ├── __init__.py
-    │   ├── base.py             # Base scanner abstract class
-    │   ├── zizmor.py          # Zizmor scanner implementation
-    │   ├── opengrep.py        # OpenGrep scanner implementation
-    │   └── factory.py         # Scanner factory and management
-    ├── reports/                # Report generation
+    │   ├── base.py              # Base scanner abstract class
+    │   ├── zizmor.py            # Zizmor scanner implementation
+    │   ├── semgrep.py           # Semgrep scanner implementation
+    │   └── factory.py           # Scanner factory and management
+    ├── reports/                 # Report generation
     │   ├── __init__.py
-    │   ├── manager.py          # Report management
-    │   └── html_converter.py   # JSON to HTML conversion
-    └── utils/                  # Utility modules
+    │   ├── manager.py           # Report management
+    │   └── html_converter.py    # JSON to HTML conversion
+    └── utils/                   # Utility modules
         ├── __init__.py
-        ├── file_utils.py       # File operations
-        ├── path_utils.py       # Path utilities
-        ├── system_utils.py     # System operations
-        ├── format_utils.py     # Formatting utilities
-        └── security_utils.py   # Security-related utilities
+        ├── file_utils.py        # File operations
+        ├── path_utils.py        # Path utilities
+        ├── system_utils.py      # System operations
+        ├── format_utils.py      # Formatting utilities
+        └── security_utils.py    # Security-related utilities
 ```
 
 ### Architecture Benefits
@@ -282,28 +298,28 @@ We welcome contributions! Here's how to get started:
 
 ### Development Setup
 ```bash
-git clone https://github.com/yourusername/actchain.git
-cd actchain
+git clone https://github.com/Axonius/ActSpect.git
+cd ActSpect
 pip install -e ".[dev]"
 ```
 
 ### Code Quality Standards
 ```bash
 # Format code
-black actchain/
+black ActSpect/
 
 # Lint code  
-flake8 actchain/
+flake8 ActSpect/
 
 # Type checking
-mypy actchain/
+mypy ActSpect/
 
 # Run tests
-pytest tests/ --cov=actchain
+pytest tests/ --cov=ActSpect
 ```
 
 ### Adding New Scanners
-1. Create a new scanner class in `actchain/scanners/`
+1. Create a new scanner class in `ActSpect/scanners/`
 2. Inherit from `BaseScanner` 
 3. Implement required methods
 4. Register in the scanner factory
@@ -316,15 +332,15 @@ pytest tests/ --cov=actchain
 - Update documentation as needed
 - Submit a pull request with a clear description
 
-By contributing to ActChain, you agree that your contributions will be licensed under the MIT License.
+By contributing to ActSpect, you agree that your contributions will be licensed under the MIT License.
 
 ## 📄 License
 
-ActChain is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+ActSpect is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ### Third-Party Dependencies
 
-ActChain integrates with and depends on several third-party tools and libraries:
+ActSpect integrates with and depends on several third-party tools and libraries:
 
 - **[Zizmor](https://github.com/woodruffw/zizmor)** - MIT License - GitHub Actions security scanner
 - **[OpenGrep/Semgrep](https://github.com/opengrep/opengrep)** - LGPL-2.1 License - Static analysis tool
@@ -337,19 +353,19 @@ See [NOTICE](NOTICE) file for complete third-party license information.
 
 ### Commercial Use
 
-ActChain is freely available for commercial use under the MIT License. No restrictions apply beyond those specified in the license.
+ActSpect is freely available for commercial use under the MIT License. No restrictions apply beyond those specified in the license.
 
 ### Disclaimer
 
-ActChain is an independent open source project and is not affiliated with or endorsed by GitHub, Inc., Trail of Bits, Semgrep, Inc., or any other third-party organizations whose tools or services may be integrated with or referenced by ActChain.
+ActSpect is an independent open source project and is not affiliated with or endorsed by GitHub, Inc., Trail of Bits, Semgrep, Inc., or any other third-party organizations whose tools or services may be integrated with or referenced by ActSpect.
 
 GitHub Actions is a trademark of GitHub, Inc.
 
 ## 🆘 Support
 
-- **Documentation**: [Full documentation](https://github.com/Axonius/ActChain/blob/main/Documentation.md)
-- **Issues**: [GitHub Issues](https://github.com/Axonius/ActChain/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/Axonius/ActChain/discussions)
+- **Documentation**: [Full documentation](https://github.com/Axonius/ActSpect/blob/main/Documentation.md)
+- **Issues**: [GitHub Issues](https://github.com/Axonius/ActSpect/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Axonius/ActSpect/discussions)
 - **Security**: Report security vulnerabilities privately via email
 - **Community**: Join our community discussions for help and feedback
 
@@ -378,7 +394,7 @@ Special thanks to the security research community for their work on GitHub Actio
 
 ## 📈 Performance & Scalability
 
-ActChain is designed for efficiency:
+ActSpect is designed for efficiency:
 
 - **Intelligent Caching**: Avoids redundant API calls and processing
 - **Concurrent Scanning**: Parallel processing where possible
@@ -414,4 +430,4 @@ This project is made possible by the amazing people who have shaped it through t
 
 **Made with ❤️ for the DevSecOps community**
 
-*ActChain helps secure your software supply chain by providing comprehensive visibility into GitHub Actions workflows and their dependencies. Start securing your CI/CD pipelines today!*
+*ActSpect helps secure your software supply chain by providing comprehensive visibility into GitHub Actions workflows and their dependencies. Start securing your CI/CD pipelines today!*
