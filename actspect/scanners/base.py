@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 """
-Base scanner class for ActChain.
+Base scanner class for ActSpect.
 """
 
 import uuid

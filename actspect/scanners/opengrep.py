@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 """
-OpenGrep scanner implementation for ActChain.
+OpenGrep scanner implementation for ActSpect.
 """
 
 import json
@@ -33,7 +33,7 @@ from .base import BaseScanner, ScannerError
 from ..constants import SCANNER_TIMEOUT, UNPINNED_ACTION_PATTERN
 from ..utils.security_utils import SecurityUtils
 
-logger = logging.getLogger('actchain.scanners.opengrep')
+logger = logging.getLogger('actspect.scanners.opengrep')
 
 
 class OpenGrepScanner(BaseScanner):

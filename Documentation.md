@@ -1,4 +1,4 @@
-# ActChain - Complete Project Documentation
+# ActSpect - Complete Project Documentation
 
 *Last Updated: December 2024*
 
@@ -16,9 +16,9 @@
 
 ## 📖 Project Overview
 
-### What is ActChain?
+### What is ActSpect?
 
-ActChain is a comprehensive security analysis tool for GitHub Actions workflows and their dependencies. It performs deep supply chain scanning to identify security vulnerabilities, misconfigurations, and compliance issues in CI/CD pipelines.
+ActSpect is a comprehensive security analysis tool for GitHub Actions workflows and their dependencies. It performs deep supply chain scanning to identify security vulnerabilities, misconfigurations, and compliance issues in CI/CD pipelines.
 
 ### Key Features
 
@@ -70,7 +70,7 @@ ActChain is a comprehensive security analysis tool for GitHub Actions workflows 
 ### Root Level Files
 
 ```
-ActChain/
+ActSpect/
 ├── .gitignore                 # Git ignore patterns
 ├── README.md                  # User-facing documentation
 ├── PROJECT_DOCUMENTATION.md  # This comprehensive guide
@@ -81,7 +81,7 @@ ActChain/
 ### Main Package Structure
 
 ```
-actchain/
+actspect/
 ├── __init__.py               # Package initialization and main exports
 ├── constants.py              # Project-wide constants and configuration
 ├── logging_config.py         # Logging setup and configuration
@@ -103,7 +103,7 @@ actchain/
 
 ### 2. Dependency Resolution
 
-ActChain builds a dependency tree by:
+ActSpect builds a dependency tree by:
 1. Parsing workflow files to extract action references
 2. Fetching action definitions from GitHub
 3. Analyzing composite actions for nested dependencies
@@ -127,7 +127,7 @@ Results are consolidated into:
 
 ## 📚 Module Documentation
 
-### CLI Module (`actchain/cli/`)
+### CLI Module (`actspect/cli/`)
 
 **Purpose**: Handles all user interaction and command-line interface
 
@@ -137,7 +137,7 @@ Results are consolidated into:
   - ASCII logo display
   - Dependency checking
   - Error handling and graceful exit
-- **Entry Point**: Called when user runs `actchain` command
+- **Entry Point**: Called when user runs `actspect` command
 
 #### `cli/commands.py`
 - **Function**: Defines CLI commands and their parameters
@@ -155,7 +155,7 @@ Results are consolidated into:
   - Results presentation and formatting
 - **Integration**: Coordinates between all other modules
 
-### Core Module (`actchain/core/`)
+### Core Module (`actspect/core/`)
 
 **Purpose**: Core business logic and GitHub API interaction
 
@@ -186,7 +186,7 @@ Results are consolidated into:
   - Security analysis of action configurations
 - **Intelligence**: Known dependency patterns for popular actions
 
-### Scanners Module (`actchain/scanners/`)
+### Scanners Module (`actspect/scanners/`)
 
 **Purpose**: Security scanner implementations and management
 
@@ -222,7 +222,7 @@ Results are consolidated into:
   - Support for multiple scanner execution
 - **Extensibility**: Easy addition of new scanners
 
-### Reports Module (`actchain/reports/`)
+### Reports Module (`actspect/reports/`)
 
 **Purpose**: Report generation and output formatting
 
@@ -244,7 +244,7 @@ Results are consolidated into:
   - Responsive design
 - **Styling**: Professional appearance with modern CSS
 
-### Utils Module (`actchain/utils/`)
+### Utils Module (`actspect/utils/`)
 
 **Purpose**: Utility functions organized by concern
 
@@ -275,7 +275,7 @@ Results are consolidated into:
 1. **Clone and Setup**:
    ```bash
    git clone <repository-url>
-   cd ActChain
+   cd ActSpect
    python -m venv .venv
    source .venv/bin/activate  # or .venv\Scripts\activate on Windows
    pip install -e ".[dev]"
@@ -284,7 +284,7 @@ Results are consolidated into:
 2. **Environment Variables**:
    ```bash
    export GITHUB_TOKEN="your_github_token_here"
-   export ACTCHAIN_LOG_LEVEL="DEBUG"  # Optional: for development
+   export ACTSPECT_LOG_LEVEL="DEBUG"  # Optional: for development
    ```
 
 ### Code Quality Standards
@@ -299,7 +299,7 @@ Results are consolidated into:
 
 #### Adding a New Scanner
 
-1. **Create Scanner Class** (`actchain/scanners/new_scanner.py`):
+1. **Create Scanner Class** (`actspect/scanners/new_scanner.py`):
    ```python
    from .base import BaseScanner
    
@@ -317,7 +317,7 @@ Results are consolidated into:
            pass
    ```
 
-2. **Register in Factory** (`actchain/scanners/factory.py`):
+2. **Register in Factory** (`actspect/scanners/factory.py`):
    ```python
    from .new_scanner import NewScanner
    
@@ -326,21 +326,21 @@ Results are consolidated into:
        return NewScanner(min_severity)
    ```
 
-3. **Update Constants** (`actchain/constants.py`):
+3. **Update Constants** (`actspect/constants.py`):
    ```python
    SCANNER_TYPES = ['zizmor', 'opengrep', 'newscanner', 'all']
    ```
 
 #### Adding a New Report Format
 
-1. **Create Converter** (`actchain/reports/new_format_converter.py`):
+1. **Create Converter** (`actspect/reports/new_format_converter.py`):
    ```python
    def convert_json_to_new_format(json_path: str) -> Optional[str]:
        # Implementation here
        pass
    ```
 
-2. **Integrate in Manager** (`actchain/reports/manager.py`):
+2. **Integrate in Manager** (`actspect/reports/manager.py`):
    ```python
    # Add to report generation logic
    if config.get('new_format'):
@@ -366,22 +366,22 @@ Results are consolidated into:
 ### Environment Variables
 
 - `GITHUB_TOKEN`: Required for GitHub API access
-- `ACTCHAIN_LOG_LEVEL`: Optional logging level (DEBUG, INFO, WARNING, ERROR)
-- `ACTCHAIN_OUTPUT_DIR`: Optional default output directory
+- `ACTSPECT_LOG_LEVEL`: Optional logging level (DEBUG, INFO, WARNING, ERROR)
+- `ACTSPECT_OUTPUT_DIR`: Optional default output directory
 
 ### Configuration Files
 
-ActChain currently uses command-line arguments for configuration. Future versions might support:
-- `~/.actchain/config.yaml`: User-level configuration
-- `.actchain.yaml`: Project-level configuration
+ActSpect currently uses command-line arguments for configuration. Future versions might support:
+- `~/.actspect/config.yaml`: User-level configuration
+- `.actspect.yaml`: Project-level configuration
 
 ### Default Settings
 
 ```python
-# From actchain/constants.py
+# From actspect/constants.py
 DEFAULT_MAX_DEPTH = 5          # Maximum dependency depth
 DEFAULT_MIN_SEVERITY = 'low'   # Minimum severity to report
-DEFAULT_OUTPUT_DIR = './actchain_reports'  # Default output location
+DEFAULT_OUTPUT_DIR = './actspect_reports'  # Default output location
 SCANNER_TIMEOUT = 300          # Scanner timeout in seconds
 ```
 
@@ -395,7 +395,7 @@ SCANNER_TIMEOUT = 300          # Scanner timeout in seconds
 
 #### 2. "Scanner not found" 
 **Cause**: Scanner dependencies not installed
-**Solution**: Install scanner manually or use `pip install "actchain[all]"`
+**Solution**: Install scanner manually or use `pip install "actspect[all]"`
 
 #### 3. "Rate limit exceeded"
 **Cause**: Too many GitHub API requests
@@ -409,7 +409,7 @@ SCANNER_TIMEOUT = 300          # Scanner timeout in seconds
 
 Enable debug mode for detailed troubleshooting:
 ```bash
-actchain scan --repo owner/repo --debug
+actspect scan --repo owner/repo --debug
 ```
 
 This provides:
@@ -421,7 +421,7 @@ This provides:
 ### Log Files
 
 - **Console Logs**: Real-time progress and errors
-- **Debug Logs**: `{output_dir}/actchain_debug.log` (when --debug is used)
+- **Debug Logs**: `{output_dir}/actspect_debug.log` (when --debug is used)
 - **Scanner Logs**: Individual scanner outputs in scan directories
 
 ## 🚀 Extension Guide
@@ -482,12 +482,12 @@ This provides:
 
 ### Key Files to Remember
 
-- **Entry Point**: `actchain/cli/main.py`
-- **Main Logic**: `actchain/cli/display.py`
-- **Configuration**: `actchain/constants.py`
-- **GitHub API**: `actchain/core/github_client.py`
-- **Scanning**: `actchain/scanners/factory.py`
-- **Reports**: `actchain/reports/manager.py`
+- **Entry Point**: `actspect/cli/main.py`
+- **Main Logic**: `actspect/cli/display.py`
+- **Configuration**: `actspect/constants.py`
+- **GitHub API**: `actspect/core/github_client.py`
+- **Scanning**: `actspect/scanners/factory.py`
+- **Reports**: `actspect/reports/manager.py`
 
 ### Common Development Tasks
 
@@ -507,4 +507,4 @@ This provides:
 
 ---
 
-*This documentation should serve as your complete reference guide for understanding, maintaining, and extending the ActChain project. Keep it updated as the project evolves!*
+*This documentation should serve as your complete reference guide for understanding, maintaining, and extending the ActSpect project. Keep it updated as the project evolves!*

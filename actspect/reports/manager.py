@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 """
-Report manager for ActChain.
+Report manager for ActSpect.
 """
 
 import json
@@ -36,7 +36,7 @@ from ..utils.path_utils import PathUtils
 from ..utils.file_utils import FileUtils
 from ..utils.system_utils import SystemUtils
 
-logger = logging.getLogger('actchain.reports.manager')
+logger = logging.getLogger('actspect.reports.manager')
 
 
 class ReportManagerError(Exception):
@@ -45,7 +45,7 @@ class ReportManagerError(Exception):
 
 
 class ReportManager:
-    """Manages report generation and storage for ActChain."""
+    """Manages report generation and storage for ActSpect."""
 
     def __init__(self, output_dir: str):
         """

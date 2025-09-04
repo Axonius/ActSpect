@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 """
-CLI commands for ActChain.
+CLI commands for ActSpect.
 """
 
 import os
@@ -36,7 +36,7 @@ from ..constants import (
 from ..logging_config import configure_logging
 from ..utils.path_utils import PathUtils
 from ..utils.system_utils import SystemUtils
-from .display import ActChainDisplay
+from .display import ActSpectDisplay
 
 console = Console()
 
@@ -49,7 +49,7 @@ class CLIError(Exception):
 @click.group()
 @click.version_option(version=__version__)
 def cli():
-    """ActChain - Analyze GitHub Actions workflows and their dependencies for security issues."""
+    """ActSpect - Analyze GitHub Actions workflows and their dependencies for security issues."""
     pass
 
 
@@ -75,7 +75,7 @@ def scan(repo, token, output_dir, workflow_path, scan_all_workflows, max_depth, 
 
     # Configure logging
     configure_logging(verbose or debug,
-                      log_file=f"{output_dir}/actchain_debug.log" if debug else None)
+                      log_file=f"{output_dir}/actspect_debug.log" if debug else None)
 
     # Validate required parameters
     if not token:
@@ -139,7 +139,7 @@ def scan(repo, token, output_dir, workflow_path, scan_all_workflows, max_depth, 
 
     # Initialize and run scan
     try:
-        display = ActChainDisplay()
+        display = ActSpectDisplay()
         display.run_scan(config)
     except KeyboardInterrupt:
         console.print("\n[yellow]Scan interrupted by user[/yellow]")
@@ -156,7 +156,7 @@ def scan(repo, token, output_dir, workflow_path, scan_all_workflows, max_depth, 
 @cli.command()
 def info():
     """Display information about the environment and dependencies."""
-    display = ActChainDisplay()
+    display = ActSpectDisplay()
     display.show_environment_info()
 
 
@@ -194,8 +194,8 @@ def _show_scanner_availability(verbose: bool = False):
 @cli.command()
 @click.option('--install-all', is_flag=True, help='Install all optional scanner dependencies')
 def setup(install_all):
-    """Set up ActChain and install optional dependencies."""
-    console.print("[bold blue]ActChain Setup[/bold blue]\n")
+    """Set up ActSpect and install optional dependencies."""
+    console.print("[bold blue]ActSpect Setup[/bold blue]\n")
 
     # Check current environment
     env_report = SystemUtils.create_environment_report()
@@ -350,7 +350,7 @@ def list_workflows(repo, token):
         console.print(table)
         console.print(f"\n[bold]Total workflows found:[/bold] {len(workflows)}")
         console.print(
-            "\n[dim]Tip: Use 'actchain scan --repo {repo} --scan-all-workflows' to scan all workflows[/dim]".format(
+            "\n[dim]Tip: Use 'actspect scan --repo {repo} --scan-all-workflows' to scan all workflows[/dim]".format(
                 repo=repo))
 
     except Exception as e:

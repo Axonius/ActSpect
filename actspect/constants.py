@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,13 +19,13 @@
 # SOFTWARE.
 
 """
-Constants and configuration for ActChain.
+Constants and configuration for ActSpect.
 """
 
 # Scanning configuration
 DEFAULT_MAX_DEPTH = 5
 DEFAULT_MIN_SEVERITY = 'low'
-DEFAULT_OUTPUT_DIR = './actchain_reports'
+DEFAULT_OUTPUT_DIR = './actspect_reports'
 
 # Severity levels (higher number = more severe)
 SEVERITY_LEVELS = {
@@ -65,7 +65,7 @@ KNOWN_ACTION_DEPENDENCIES = {
 
 # File patterns
 WORKFLOW_FILE_EXTENSIONS = ['.yml', '.yaml']
-TEMP_FILE_PREFIX = 'actchain_'
+TEMP_FILE_PREFIX = 'actspect_'
 
 # Regular expressions
 ACTION_REF_PATTERN = r'([a-zA-Z0-9_-]+/[a-zA-Z0-9_-]+)@([a-zA-Z0-9_.-]+)'

@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 """
-Main CLI entry point for ActChain.
+Main CLI entry point for ActSpect.
 """
 
 import sys
@@ -37,16 +37,16 @@ console = Console()
 
 
 def display_logo():
-    """Display ActChain ASCII art logo."""
+    """Display ActSpect ASCII art logo."""
     console.clear()
 
     logo = r"""
-    █████╗  ██████╗████████╗ ██████╗██╗  ██╗ █████╗ ██╗███╗   ██╗
-   ██╔══██╗██╔════╝╚══██╔══╝██╔════╝██║  ██║██╔══██╗██║████╗  ██║
-   ███████║██║        ██║   ██║     ███████║███████║██║██╔██╗ ██║
-   ██╔══██║██║        ██║   ██║     ██╔══██║██╔══██║██║██║╚██╗██║
-   ██║  ██║╚██████╗   ██║   ╚██████╗██║  ██║██║  ██║██║██║ ╚████║
-   ╚═╝  ╚═╝ ╚═════╝   ╚═╝    ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝
+    █████╗  ██████╗████████╗███████╗██████╗ ███████╗ ██████╗████████╗
+   ██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗██╔════╝██╔════╝╚══██╔══╝
+   ███████║██║        ██║   ███████╗██████╔╝█████╗  ██║        ██║   
+   ██╔══██║██║        ██║   ╚════██║██╔═══╝ ██╔══╝  ██║        ██║   
+   ██║  ██║╚██████╗   ██║   ███████║██║     ███████╗╚██████╗   ██║   
+   ╚═╝  ╚═╝ ╚═════╝   ╚═╝   ╚══════╝╚═╝     ╚══════╝ ╚═════╝   ╚═╝   
     """
 
     console.print(Align.center(logo, style="bold cyan"))
@@ -55,7 +55,7 @@ def display_logo():
 
 
 def main():
-    """Main entry point for ActChain CLI."""
+    """Main entry point for ActSpect CLI."""
     try:
         # Display logo
         display_logo()

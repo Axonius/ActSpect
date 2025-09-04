@@ -2,6 +2,6 @@ include LICENSE
 include NOTICE
 include README.md
 include requirements.txt
-recursive-include actchain *.py
+recursive-include actspect *.py
 recursive-exclude * __pycache__
 recursive-exclude * *.py[co]

@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 """
-GitHub API client for ActChain.
+GitHub API client for ActSpect.
 """
 
 import base64
@@ -31,7 +31,7 @@ from github import Github, GithubException
 from ..constants import WORKFLOW_FILE_EXTENSIONS
 from ..utils.security_utils import SecurityUtils
 
-logger = logging.getLogger('actchain.core.github_client')
+logger = logging.getLogger('actspect.core.github_client')
 
 
 class GitHubClientError(Exception):
@@ -40,7 +40,7 @@ class GitHubClientError(Exception):
 
 
 class GitHubClient:
-    """GitHub API client for ActChain."""
+    """GitHub API client for ActSpect."""
 
     def __init__(self, token: str, repo_name: str):
         """

@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,17 +19,19 @@
 # SOFTWARE.
 
 """
-Core modules for ActChain.
+Utility modules for ActSpect.
 """
 
-from .github_client import GitHubClient, GitHubClientError
-from .workflow_parser import WorkflowParser, WorkflowParseError
-from .action_resolver import ActionResolver
+from .file_utils import FileUtils
+from .path_utils import PathUtils
+from .system_utils import SystemUtils
+from .format_utils import FormatUtils
+from .security_utils import SecurityUtils
 
 __all__ = [
-    'GitHubClient',
-    'GitHubClientError',
-    'WorkflowParser',
-    'WorkflowParseError',
-    'ActionResolver',
+    'FileUtils',
+    'PathUtils',
+    'SystemUtils',
+    'FormatUtils',
+    'SecurityUtils',
 ]

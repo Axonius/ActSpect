@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,7 +19,7 @@
 # SOFTWARE.
 
 """
-Display utilities and main scanning logic for ActChain CLI.
+Display utilities and main scanning logic for ActSpect CLI.
 """
 
 import os
@@ -41,11 +41,11 @@ from ..reports import ReportManager, ReportManagerError, convert_json_to_html
 from ..utils.system_utils import SystemUtils
 
 console = Console()
-logger = logging.getLogger('actchain.cli.display')
+logger = logging.getLogger('actspect.cli.display')
 
 
-class ActChainDisplay:
-    """Handles display and scanning logic for ActChain CLI."""
+class ActSpectDisplay:
+    """Handles display and scanning logic for ActSpect CLI."""
 
     def __init__(self):
         """Initialize the display handler."""
@@ -56,7 +56,7 @@ class ActChainDisplay:
         self.console.print(Panel.fit(
             "[bold blue]GitHub Actions[/bold blue] Workflow Security Scanner\n"
             "[dim]Supply Chain Security Scanner[/dim]",
-            title="ActChain",
+            title="ActSpect",
             border_style="blue"
         ))
 
@@ -91,8 +91,8 @@ class ActChainDisplay:
         # Help information
         self.console.print(Panel(
             "To scan a GitHub Actions workflow, use:\n"
-            "[bold cyan]actchain scan --repo owner/repository[/bold cyan]\n\n"
-            "For more options, use [bold]actchain scan --help[/bold]",
+            "[bold cyan]actspect scan --repo owner/repository[/bold cyan]\n\n"
+            "For more options, use [bold]actspect scan --help[/bold]",
             title="Quick Help",
             border_style="blue"
         ))
@@ -132,7 +132,7 @@ class ActChainDisplay:
         self.console.print(Panel.fit(
             "[bold blue]GitHub Actions[/bold blue] Workflow Security Scanner\n"
             "[dim]Supply Chain Security Scanner[/dim]",
-            title="ActChain",
+            title="ActSpect",
             border_style="blue"
         ))
 

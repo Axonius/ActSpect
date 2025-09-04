@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ import yaml
 from yaml.parser import ParserError
 from yaml.scanner import ScannerError
 
-logger = logging.getLogger('actchain.core.workflow_parser')
+logger = logging.getLogger('actspect.core.workflow_parser')
 
 
 class WorkflowParseError(Exception):

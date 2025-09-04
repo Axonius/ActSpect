@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,19 +19,9 @@
 # SOFTWARE.
 
 """
-Utility modules for ActChain.
+CLI modules for ActSpect.
 """
 
-from .file_utils import FileUtils
-from .path_utils import PathUtils
-from .system_utils import SystemUtils
-from .format_utils import FormatUtils
-from .security_utils import SecurityUtils
+from .main import main
 
-__all__ = [
-    'FileUtils',
-    'PathUtils',
-    'SystemUtils',
-    'FormatUtils',
-    'SecurityUtils',
-]
+__all__ = ['main']

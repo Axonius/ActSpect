@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -24,21 +24,21 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setup(
-    name="actchain",
+    name="actspect",
     version="0.1.0",
-    author="ActChain Development Team",
-    author_email="your.email@example.com",
+    author="Axonius Solutions Ltd.",
+    author_email="github@axonius.com",
     description="A comprehensive security analysis tool for GitHub Actions workflows and their dependencies",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/actchain",
+    url="https://github.com/Axonius/ActSpect",
     project_urls={
-        "Bug Tracker": "https://github.com/yourusername/actchain/issues",
-        "Documentation": "https://actchain.readthedocs.io/",
-        "Source Code": "https://github.com/yourusername/actchain",
-        "License": "https://github.com/yourusername/actchain/blob/main/LICENSE",
-        "Releases": "https://github.com/yourusername/actchain/releases",
-        "Changelog": "https://github.com/yourusername/actchain/blob/main/CHANGELOG.md",
+        "Bug Tracker": "https://github.com/Axonius/ActSpect/issues",
+        "Documentation": "https://github.com/Axonius/ActSpect/blob/main/Documentation.md",
+        "Source Code": "https://github.com/Axonius/ActSpect",
+        "License": "https://github.com/Axonius/ActSpect/blob/main/LICENSE",
+        "Releases": "https://github.com/Axonius/ActSpect/releases",
+        "Changelog": "https://github.com/Axonius/ActSpect/blob/main/CHANGELOG.md",
     },
     classifiers=[
         "Development Status :: 3 - Alpha",
@@ -97,12 +97,12 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'actchain=actchain.cli.main:main',
+            'actspect=actspect.cli.main:main',
         ],
     },
     include_package_data=True,
     package_data={
-        "actchain": ["py.typed"],
+        "actspect": ["py.typed"],
     },
     zip_safe=False,
     license="MIT",

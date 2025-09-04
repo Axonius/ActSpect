@@ -1,4 +1,4 @@
-# Copyright (c) 2025 ActChain Development Team
+# Copyright (c) 2025 Axonius Solutions Ltd.
 # 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -19,14 +19,28 @@
 # SOFTWARE.
 
 """
-Scanner modules for ActChain.
+ActSpect - GitHub Actions Workflow Security Scanner
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ActSpect is a tool to analyze the security of GitHub Actions
+workflows and their dependent actions.
 """
 
-from .base import BaseScanner, ScannerError
-from .factory import get_scanner
+__version__ = '0.1.0'
+__author__ = 'Axonius Solutions Ltd.'
+__license__ = 'MIT'
+
+# Main components
+from .core.github_client import GitHubClient
+from .core.workflow_parser import WorkflowParser
+from .core.action_resolver import ActionResolver
+from .scanners.factory import get_scanner
+from .reports.manager import ReportManager
 
 __all__ = [
-    'BaseScanner',
-    'ScannerError',
+    'GitHubClient',
+    'WorkflowParser',
+    'ActionResolver',
     'get_scanner',
+    'ReportManager',
 ]
