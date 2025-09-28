@@ -36,33 +36,6 @@ SEVERITY_LEVELS = {
     'unknown': 0
 }
 
-# Known dependencies for popular actions
-KNOWN_ACTION_DEPENDENCIES = {
-    "docker/build-push-action": [
-        "docker/setup-buildx-action",
-        "docker/login-action",
-        "docker/metadata-action"
-    ],
-    "actions/cache": [
-        "actions/cache/save",
-        "actions/cache/restore"
-    ],
-    "actions/checkout": [],
-    "github/super-linter": [
-        "actions/checkout"
-    ],
-    "actions/setup-dotnet": [
-        "actions/setup-node"
-    ],
-    "cycjimmy/semantic-release-action": [
-        "actions/checkout",
-        "actions/setup-node"
-    ],
-    "actions/dependency-review-action": [
-        "actions/checkout"
-    ],
-}
-
 # File patterns
 WORKFLOW_FILE_EXTENSIONS = ['.yml', '.yaml']
 TEMP_FILE_PREFIX = 'actspect_'

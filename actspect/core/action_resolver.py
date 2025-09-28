@@ -26,7 +26,7 @@ import re
 import logging
 from typing import Dict, Set, Any, Optional, TYPE_CHECKING
 
-from ..constants import KNOWN_ACTION_DEPENDENCIES, ACTION_REF_PATTERN, USES_PATTERN
+from ..constants import ACTION_REF_PATTERN, USES_PATTERN
 
 if TYPE_CHECKING:
     from .github_client import GitHubClient
@@ -125,8 +125,6 @@ class ActionResolver:
         # Extract dependencies from different sources
         dependencies.update(self._extract_composite_dependencies(action_type, content))
         dependencies.update(self._extract_uses_dependencies(content))
-        dependencies.update(self._get_known_dependencies(action_ref))
-        dependencies.update(self._extract_documentation_dependencies(action_ref))
 
         # Remove self-references
         dependencies.discard(action_ref)
@@ -275,64 +273,6 @@ class ActionResolver:
                         uses_refs.update(nested_refs)
 
         return uses_refs
-
-    def _get_known_dependencies(self, action_ref: str) -> Set[str]:
-        """Get known dependencies for popular actions."""
-        dependencies = set()
-        base_ref = self._get_base_ref(action_ref)
-
-        if base_ref in KNOWN_ACTION_DEPENDENCIES:
-            known_deps = KNOWN_ACTION_DEPENDENCIES[base_ref]
-            for dep in known_deps:
-                if '@' not in dep and '@' in action_ref:
-                    # Use the same version as the parent action
-                    version = action_ref.split('@')[1]
-                    dep = f"{dep}@{version}"
-                elif '@' not in dep:
-                    dep = f"{dep}@main"
-
-                logger.debug(f"Adding known dependency for {action_ref}: {dep}")
-                dependencies.add(dep)
-
-        return dependencies
-
-    def _extract_documentation_dependencies(self, action_ref: str) -> Set[str]:
-        """Extract dependencies from action documentation."""
-        dependencies = set()
-
-        if '@' not in action_ref:
-            return dependencies
-
-        try:
-            ref_parts = action_ref.split('@')
-            repo_name = ref_parts[0]
-            ref = ref_parts[1]
-
-            readme_content = self.github_client.get_file_content_optional(
-                repo_name, "README.md", ref
-            )
-
-            if readme_content:
-                # Extract action references from README
-                action_refs = re.findall(ACTION_REF_PATTERN, readme_content)
-                for match in action_refs:
-                    dep = f"{match[0]}@{match[1]}"
-                    if dep != action_ref:  # Don't add self
-                        logger.debug(f"Found potential dependency in README: {dep}")
-                        dependencies.add(dep)
-
-                # Extract uses: patterns
-                uses_refs = re.findall(USES_PATTERN, readme_content)
-                for match in uses_refs:
-                    dep = f"{match[0]}@{match[1]}"
-                    if dep != action_ref:  # Don't add self
-                        logger.debug(f"Found potential 'uses:' dependency in README: {dep}")
-                        dependencies.add(dep)
-
-        except Exception as e:
-            logger.debug(f"Error extracting dependencies from README: {e}")
-
-        return dependencies
 
     def _get_base_ref(self, action_ref: str) -> str:
         """Get the base reference (owner/repo) without version."""
