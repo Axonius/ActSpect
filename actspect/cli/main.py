@@ -50,8 +50,6 @@ def display_logo():
     """
 
     console.print(Align.center(logo, style="bold cyan"))
-    time.sleep(1.0)
-    console.clear()
 
 
 def main():

@@ -509,8 +509,6 @@ class ActSpectDisplay:
                 processed_actions, action_count_by_depth, config
             )
 
-        # Save tree representation with workflow name
-        tree_name = f"workflow_tree_{workflow_name.replace('.yml', '').replace('.yaml', '')}"
         components['report_manager'].save_workflow_tree(action_tree)
 
         return action_tree
